@@ -7,8 +7,10 @@ import org.example.LambdaExpression.SoftwareEngineer;
 
 import java.sql.SQLOutput;
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -60,6 +62,7 @@ public class Main {
         set1.add(10);
         System.out.println("after manual sorting: " + set1);
 
+        //Predicate
         Predicate<String> predicate = x -> x.equals("akash");
         System.out.println(predicate.test("akas"));
 
@@ -78,6 +81,7 @@ public class Main {
         Student s2 = new Student("shivam", 2);
         List<Student> students = new ArrayList<>();
 
+        //Function interface
         Function<String, String> function1 = x -> x.substring(0,3);
 
         Function<List<Student>, List<Student>> studentWithakaAsPrefix = li -> {
@@ -95,6 +99,18 @@ public class Main {
         Function<String,String> newFun = x -> x.toUpperCase();
         Function<String, String> newFun1 = x -> x.substring(0,3);
         System.out.println(newFun.andThen(newFun1).apply("akash"));
+
+        //Consumer
+        Consumer<List<Integer>> listConsumer = x -> {
+            for(Integer i : x){
+                System.out.println(i + 100);
+            }
+        };
+        listConsumer.accept(Arrays.asList(1 ,2 ,3 ,4));
+
+        //Supplier
+        Supplier<String> supplier = () -> "akash";
+        System.out.println(supplier.get());
     }
 
     public static class Student{
