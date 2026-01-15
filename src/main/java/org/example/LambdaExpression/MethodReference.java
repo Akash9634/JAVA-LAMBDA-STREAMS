@@ -17,5 +17,7 @@ public class MethodReference {
         //we can do the above operation using method reference
         students.forEach(MethodReference::print); // this means go into the MethodReference class and take the reference of the print method
         //if print method was not static then we would have made the object of the class say for ex - test(object) and do this test::print
+
+
     }
 }
